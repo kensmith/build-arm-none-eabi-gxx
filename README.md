@@ -11,6 +11,7 @@ so you'll either have to type your password in from time to
 time or you'll have to have NOPASSWD in your /etc/sudoers
 for your login group.
 
-Tested on Arch Linux circa end of 2012.
+Tested on Arch Linux circa end of 2012. Support for building
+in parallel left as an exercise. (IOW, don't do `make -j`.)
 
 vim:tw=60:

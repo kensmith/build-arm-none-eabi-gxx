@@ -27,7 +27,7 @@ newlib-1.20.0\
 ;tar xzvf $<
 
 
-newlib-1.20.0\
+newlib-1.20.0.tar.gz\
 :\
 ;wget ftp://sources.redhat.com/pub/newlib/newlib-1.20.0.tar.gz
 

@@ -13,7 +13,8 @@ all\
  build-binutils\
  build-gcc-bootstrap\
  build-newlib\
- build-gcc-final
+ build-gcc-final\
+ build-gdb
 
 
 build-sysroot\
@@ -151,12 +152,7 @@ build/sysroot/usr\
 clean\
 :\
 ;rm -Rf\
- build/sysroot/usr\
- build/newlib\
- build/gcc-bootstrap\
- build/gcc-final\
- build/binutils\
- build/gdb\
+ build\
  binutils-2.23\
  gcc-4.7.2\
  gdb-7.5\

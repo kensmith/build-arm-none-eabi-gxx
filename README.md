@@ -13,5 +13,7 @@ for your login group.
 
 Tested on Arch Linux circa end of 2012. Support for building
 in parallel left as an exercise. (IOW, don't do `make -j`.)
+It takes just over 35 minutes and just over 3.4 GiB on my
+machine from start to finish.
 
 vim:tw=60:

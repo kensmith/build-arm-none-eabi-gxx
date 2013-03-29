@@ -1,4 +1,7 @@
 gcc-version := 4.8.0
+newlib-version := 1.20.0
+gdb-version := 7.5
+binutils-version := 2.23
 
 .PHONY:\
  all\
@@ -20,25 +23,25 @@ all\
 
 
 build-sysroot\
-:build/sysroot/usr newlib-1.20.0\
-;(cd newlib-1.20.0/newlib/libc; tar c include)\
+:build/sysroot/usr newlib-$(newlib-version)\
+;(cd newlib-$(newlib-version)/newlib/libc; tar c include)\
 |(cd build/sysroot/usr/;tar xv)\
 
 
-newlib-1.20.0\
-:newlib-1.20.0.tar.gz\
+newlib-$(newlib-version)\
+:newlib-$(newlib-version).tar.gz\
 ;tar xzvf $<
 
 
-newlib-1.20.0.tar.gz\
+newlib-$(newlib-version).tar.gz\
 :\
-;wget ftp://sources.redhat.com/pub/newlib/newlib-1.20.0.tar.gz
+;wget ftp://sources.redhat.com/pub/newlib/newlib-$(newlib-version).tar.gz
 
 
 build-binutils\
-:build/binutils binutils-2.23\
+:build/binutils binutils-$(binutils-version)\
 ;cd build/binutils\
-;../../binutils-2.23/configure\
+;../../binutils-$(binutils-version)/configure\
  --target=arm-none-eabi\
  --enable-interwork\
  --enable-multilib\
@@ -46,20 +49,20 @@ build-binutils\
 && sudo make install
 
 
-binutils-2.23\
-:binutils-2.23.tar.gz\
+binutils-$(binutils-version)\
+:binutils-$(binutils-version).tar.gz\
 ;tar xzvf $<
 
 
-binutils-2.23.tar.gz\
+binutils-$(binutils-version).tar.gz\
 :\
-;wget ftp://ftp.gnu.org/pub/gnu/binutils/binutils-2.23.tar.gz
+;wget ftp://ftp.gnu.org/pub/gnu/binutils/binutils-$(binutils-version).tar.gz
 
 
 build-newlib\
-:build/newlib newlib-1.20.0\
+:build/newlib newlib-$(newlib-version)\
 ;cd build/newlib\
-;../../newlib-1.20.0/configure\
+;../../newlib-$(newlib-version)/configure\
  --target=arm-none-eabi\
  --enable-interwork\
  --enable-multilib\
@@ -121,9 +124,9 @@ build-gcc-final\
 
 
 build-gdb\
-:build/gdb gdb-7.5\
+:build/gdb gdb-$(gdb-version)\
 ;cd build/gdb\
-;../../gdb-7.5/configure\
+;../../gdb-$(gdb-version)/configure\
  --target=arm-none-eabi\
  --enable-interwork\
  --enable-multilib\
@@ -131,14 +134,14 @@ build-gdb\
 && sudo make install
 
 
-gdb-7.5\
-:gdb-7.5.tar.bz2\
+gdb-$(gdb-version)\
+:gdb-$(gdb-version).tar.bz2\
 ;tar xjvf $<
 
 
-gdb-7.5.tar.bz2\
+gdb-$(gdb-version).tar.bz2\
 :\
-;wget ftp://ftp.gnu.org/pub/gnu/gdb/gdb-7.5.tar.bz2
+;wget ftp://ftp.gnu.org/pub/gnu/gdb/gdb-$(gdb-version).tar.bz2
 
 
 build/sysroot/usr\
@@ -155,7 +158,7 @@ clean\
 :\
 ;rm -Rf\
  build\
- binutils-2.23\
+ binutils-$(binutils-version)\
  gcc-$(gcc-version)\
- gdb-7.5\
- newlib-1.20.0
+ gdb-$(gdb-version)\
+ newlib-$(newlib-version)

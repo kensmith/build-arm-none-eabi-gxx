@@ -1,3 +1,5 @@
+gcc-version := 4.8.0
+
 .PHONY:\
  all\
  build-binutils\
@@ -66,9 +68,9 @@ build-newlib\
 
 
 build-gcc-bootstrap\
-:build/gcc-bootstrap gcc-4.7.2\
+:build/gcc-bootstrap gcc-$(gcc-version)\
 ;cd build/gcc-bootstrap\
-;../../gcc-4.7.2/configure\
+;../../gcc-$(gcc-version)/configure\
  --target=arm-none-eabi\
  --enable-interwork\
  --enable-multilib\
@@ -87,20 +89,20 @@ build-gcc-bootstrap\
 && sudo make install
 
 
-gcc-4.7.2\
-:gcc-4.7.2.tar.bz2\
+gcc-$(gcc-version)\
+:gcc-$(gcc-version).tar.bz2\
 ;tar xjvf $<
 
 
-gcc-4.7.2.tar.bz2\
+gcc-$(gcc-version).tar.bz2\
 :\
-;wget ftp://ftp.gnu.org/pub/gnu/gcc/gcc-4.7.2/gcc-4.7.2.tar.bz2
+;wget ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$(gcc-version)/gcc-$(gcc-version).tar.bz2
 
 
 build-gcc-final\
-:build/gcc-final gcc-4.7.2\
+:build/gcc-final gcc-$(gcc-version)\
 ;cd build/gcc-final\
-;../../gcc-4.7.2/configure\
+;../../gcc-$(gcc-version)/configure\
  --target=arm-none-eabi\
  --with-newlib\
  --disable-threads\
@@ -154,6 +156,6 @@ clean\
 ;rm -Rf\
  build\
  binutils-2.23\
- gcc-4.7.2\
+ gcc-$(gcc-version)\
  gdb-7.5\
  newlib-1.20.0

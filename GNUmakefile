@@ -1,6 +1,6 @@
-gcc-version := 4.8.0
-newlib-version := 1.20.0
-gdb-version := 7.5
+gcc-version := 4.8.2
+newlib-version := 2.0.0
+gdb-version := 7.6.1
 binutils-version := 2.23
 
 .PHONY:\

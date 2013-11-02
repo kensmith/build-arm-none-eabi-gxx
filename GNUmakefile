@@ -43,8 +43,10 @@ build-binutils\
 ;cd build/binutils\
 ;../../binutils-$(binutils-version)/configure\
  --target=arm-none-eabi\
- --enable-interwork\
- --enable-multilib\
+ --with-cpu=cortex-m3\
+ --with-mode=thumb\
+ --disable-interwork\
+ --disable-multilib\
 && make\
 && sudo make install
 
@@ -64,8 +66,10 @@ build-newlib\
 ;cd build/newlib\
 ;../../newlib-$(newlib-version)/configure\
  --target=arm-none-eabi\
- --enable-interwork\
- --enable-multilib\
+ --with-cpu=cortex-m3\
+ --with-mode=thumb\
+ --disable-interwork\
+ --disable-multilib\
 && make\
 && sudo make install
 
@@ -75,8 +79,10 @@ build-gcc-bootstrap\
 ;cd build/gcc-bootstrap\
 ;../../gcc-$(gcc-version)/configure\
  --target=arm-none-eabi\
- --enable-interwork\
- --enable-multilib\
+ --with-cpu=cortex-m3\
+ --with-mode=thumb\
+ --disable-interwork\
+ --disable-multilib\
  --enable-languages=c\
  --with-newlib\
  --with-build-sysroot=sysroot\
@@ -107,6 +113,8 @@ build-gcc-final\
 ;cd build/gcc-final\
 ;../../gcc-$(gcc-version)/configure\
  --target=arm-none-eabi\
+ --with-cpu=cortex-m3\
+ --with-mode=thumb\
  --with-newlib\
  --disable-threads\
  --disable-libmudflap\
@@ -116,8 +124,8 @@ build-gcc-final\
  --disable-shared\
  --disable-zlib\
  --disable-nls\
- --enable-multilib\
- --enable-interwork\
+ --disable-multilib\
+ --disable-interwork\
  --enable-languages=c,c++\
 && make\
 && sudo make install
@@ -128,8 +136,10 @@ build-gdb\
 ;cd build/gdb\
 ;../../gdb-$(gdb-version)/configure\
  --target=arm-none-eabi\
- --enable-interwork\
- --enable-multilib\
+ --with-cpu=cortex-m3\
+ --with-mode=thumb\
+ --disable-interwork\
+ --disable-multilib\
 && make\
 && sudo make install
 

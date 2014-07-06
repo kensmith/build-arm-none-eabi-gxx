@@ -1,7 +1,7 @@
-gcc-version := 4.8.2
+gcc-version := 4.9.0
 newlib-version := 2.0.0
-gdb-version := 7.6.1
-binutils-version := 2.23
+gdb-version := 7.7.1
+binutils-version := 2.24
 
 .PHONY:\
  all\
@@ -47,6 +47,7 @@ build-binutils\
  --with-mode=thumb\
  --disable-interwork\
  --disable-multilib\
+ --disable-werror\
 && make\
 && sudo make install
 

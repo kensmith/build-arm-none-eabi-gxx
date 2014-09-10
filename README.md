@@ -11,9 +11,10 @@ so you'll either have to type your password in from time to
 time or you'll have to have NOPASSWD in your /etc/sudoers
 for your login group.
 
-Tested on Arch Linux circa end of 2012. Support for building
-in parallel left as an exercise. (IOW, don't do `make -j`.)
-It takes just over 35 minutes and just over 3.4 GiB on my
-machine from start to finish.
+Tested on Arch Linux circa end of 2012 (and again in
+mid-2014). Support for building in parallel left as an
+exercise. (IOW, don't do `make -j`.) It takes just over 35
+minutes and just over 3.4 GiB on my machine from start to
+finish.
 
 vim:tw=60:

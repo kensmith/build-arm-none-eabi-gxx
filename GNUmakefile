@@ -1,6 +1,6 @@
-gcc-version := 4.9.0
-newlib-version := 2.0.0
-gdb-version := 7.7.1
+gcc-version := 4.9.2
+newlib-version := 2.2.0
+gdb-version := 7.8.1
 binutils-version := 2.24
 
 .PHONY:\
@@ -146,13 +146,13 @@ build-gdb\
 
 
 gdb-$(gdb-version)\
-:gdb-$(gdb-version).tar.bz2\
-;tar xjvf $<
+:gdb-$(gdb-version).tar.gz\
+;tar xzvf $<
 
 
-gdb-$(gdb-version).tar.bz2\
+gdb-$(gdb-version).tar.gz\
 :\
-;wget ftp://ftp.gnu.org/pub/gnu/gdb/gdb-$(gdb-version).tar.bz2
+;wget ftp://ftp.gnu.org/pub/gnu/gdb/gdb-$(gdb-version).tar.gz
 
 
 build/sysroot/usr\
